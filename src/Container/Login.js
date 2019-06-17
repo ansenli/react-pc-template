@@ -3,7 +3,7 @@ import React, { Component ,Fragment} from 'react'
 /* impr  */
 // import React, { PureComponent } from 'react'
 import  { connect } from 'react-redux'
-import { Button } from 'antd-mobile';
+import { Button } from 'antd';
 import { asyncPostLogin } from '@/store/actions/common';
 
 // react-redux 中 connect 第一个参数是函数，第二个参数是对象
@@ -29,12 +29,12 @@ class Login extends Component{
     asyncPostLogin();
   }
   render(){
-    console.log("this.props.....",this.props.loginInfo);
-    console.log("registerInfo",this.props.registerInfo)
     return (
       <Fragment>
         <Button onClick={this.nextTapLink}>跳转到home页面</Button>
         <Button onClick={this.nextTapLogin}>触发登录接口</Button>
+        <Button type="primary">Button1111</Button>
+       
       </Fragment>
     )
   }

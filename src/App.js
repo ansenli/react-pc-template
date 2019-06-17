@@ -12,7 +12,6 @@ import AuthRoute from 'Components/AuthRoute';
 const store = configStore();
 
 function App() {
-  console.log("store......",store)
   return (
     <Fragment>
       <Provider store = {store}>

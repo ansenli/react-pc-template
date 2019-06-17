@@ -28,14 +28,6 @@ export default {
       data: {data}
     });
   },
-  //查询列表
-/*  login(data) {
-    return ({
-      url: '/login',
-      method: 'post',
-      params: qs.stringify(data)
-    });
-  },*/
 
   login(data){
     return axios.post('/login',qs.stringify(data));

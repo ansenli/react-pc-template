@@ -3,7 +3,7 @@ import React, { Component ,Fragment} from 'react'
 /* impr  */
 // import React, { PureComponent } from 'react'
 
-import { Button } from 'antd-mobile';
+import { Button } from 'antd';
 
 class Register extends Component{
   render(){

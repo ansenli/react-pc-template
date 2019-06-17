@@ -16,7 +16,6 @@ const asyncPostLoginFunc = async function (params) {
     query: params,
     method: 'POST'
   })
-  console.log("actions....",jsonData)
   if (jsonData.resCode.status === 1) {
     return jsonData.data
   } else {
@@ -28,7 +27,7 @@ const asyncPostRegisterFunc = async function (params) {
     query: params,
     method: 'POST'
   })
-  if (jsonData.statusCode == 200) {
+  if (jsonData.statusCode === 200) {
     return jsonData.data
   } else {
     return false;

@@ -4,7 +4,7 @@ import React, { Component ,Fragment} from 'react'
 
 // import React, { PureComponent } from 'react'
 
-import { Button } from 'antd-mobile';
+import { Button } from 'antd';
 class Home extends Component{
   render(){
     return (

@@ -3,12 +3,13 @@ const path = require("path");
 process.env.GENERATE_SOURCEMAP = "false";
 module.exports = override(
    fixBabelImports('import', {
-     libraryName: 'antd-mobile',
+     libraryName: 'antd',
+     libraryDirectory: 'es',
      style: true,
    }),
    addLessLoader({
     javascriptEnabled: true,
-    modifyVars: { '@primary-color': '#1DA57A' },
+    modifyVars: { '@primary-color': '#814a96' },
   }),
   addWebpackAlias({
     "@": path.resolve(__dirname, "src"),

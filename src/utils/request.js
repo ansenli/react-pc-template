@@ -1,8 +1,5 @@
 import axios from 'axios';
-//import oauth from '@/oauth';
-// import Cookies from 'js-cookie';
-//import {Message,MessageBox} from 'element-ui';
-
+import { message } from 'antd';
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.BASE_API, // api的base_url
@@ -14,6 +11,7 @@ const service = axios.create({
 });
 // request interceptor
 service.interceptors.request.use(config => {
+  message.loading('请求加载中..', 0);
   let token = sessionStorage.getItem('jwt-token');
   if(!token || token === '') {
   } else {
@@ -30,7 +28,7 @@ service.interceptors.response.use(
     let {headers} = response;
     if (headers['jwt-token']) {
       sessionStorage.setItem('jwt-token', headers['jwt-token']);
-  }
+    }
     if (response.status === 401) {
       //oauth.clearAuthInfo();
       //window.location = 'http://61.152.207.98/enduser/sp/sso/ytojwt17?enterpriseId=yto';
@@ -41,11 +39,13 @@ service.interceptors.response.use(
         filename: decodeURI(response.headers['content-disposition'])
       };
     }
+    message.destroy();
     return response.data;
+    
   },
   error => {
     // console.log('error长时间未操作的返回结果：',JSON.stringify(error));
-    const originalRequest = error.config;
+    // const originalRequest = error.config;
     // if ([400].indexOf(error.response.status) > -1 && [-40001].indexOf(error.response.data.status) > -1 ) {
     //   MessageBox.confirm(`${error.response.data.message}`, '提交失败', {
     //     confirmButtonText: '关闭',

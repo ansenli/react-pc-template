@@ -9,7 +9,7 @@ class User extends Component{
   render(){
     return (
       <Fragment>
-        <Button>user.....</Button>
+        <Button>user懒加载.....</Button>
       </Fragment>
     )
   }

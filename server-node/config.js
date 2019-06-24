@@ -1,9 +1,9 @@
 const config = {
   port:3080,
   database:{
-    DATABASE: 'ytosql', 
-    USERNAME: 'ytoansl', 
-    PASSWORD: '!QAZ2wsx', 
+    DATABASE: 'yto_node', 
+    USERNAME: 'andrew', 
+    PASSWORD: '123456', 
     PORT: '3306', 
     HOST: 'localhost'
   }

@@ -5,6 +5,7 @@ const static = require('koa-static');
 const Koa = require('koa');
 const App = new Koa();
 const config = require('./config');
+const mysql = require('./mysql')
 
 /* 引入各个模块路由 */
 
@@ -26,6 +27,18 @@ App.use(Router.routes());
 
 App.use(static(path.join(__dirname,staticPath)));
 
+App.use(async (ctx) => {
+  // 连接数据库成功
+  let data = await mysql.query();
+  console.log("data mysql........",data);
+  ctx.body = {
+      "code": 1,
+      "data": data,
+      "mesg": 'ok'
+  };
+  console.log("ctx.body.....",ctx.body)
+  
+})
 
 /* 启动服务绑定端口 */
 let server = App.listen(config.port,()=>{

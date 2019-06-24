@@ -4,6 +4,7 @@ const path = require('path');
 const static = require('koa-static');
 const Koa = require('koa');
 const App = new Koa();
+const config = require('./config');
 
 /* 引入各个模块路由 */
 
@@ -24,8 +25,10 @@ App.use(Router.routes());
 /* 配置静态服务器 */
 
 App.use(static(path.join(__dirname,staticPath)));
+
+
 /* 启动服务绑定端口 */
-let server = App.listen(3080,()=>{
+let server = App.listen(config.port,()=>{
   let host = server.address().address;
   let port = server.address().port;
   console.log("[server]started http://%s:%s", host, port)

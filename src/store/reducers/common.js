@@ -16,6 +16,7 @@ const defaultState = {
 }
 export default handleActions({
   [ASYNC_LOGIN](state, action) {
+    console.log("action.....",action)
     return {
       ...state,
       loginInfo:action.payload

@@ -17,7 +17,8 @@ const asyncPostLoginFunc = async function (params) {
     method: 'POST'
   })
   if (jsonData.resCode.status === 1) {
-    return jsonData.data
+    console.log("11111",jsonData);
+    return jsonData;
   } else {
     return false;
   }

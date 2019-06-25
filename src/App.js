@@ -3,24 +3,23 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux'
 import configStore from './store';
-import styles from './App.module.less';
+import { Icon } from "antd";
+import './App.css';
 /* imd  */
 const Home = lazy(()=>import('Container/Home'));
 const Login = lazy(()=>import('Container/Login'));
 const Register = lazy(()=>import('Container/Register'));
 const User = lazy(()=>import('Container/User'));
 const AuthRoute = lazy(()=>import('Components/AuthRoute'));
-
-
 const store = configStore();
-
 function App() {
   return (
     <Fragment>
       <Provider store = {store}>
         {/* 基于路由的代码分割 */}
         <BrowserRouter>
-          <Suspense fallback={<div>努力加载中</div>}>
+        {/*  */}
+          <Suspense fallback={<Icon type="slack-square" spin style={{fontSize: 40,color:'rgb(129, 74, 150)'}} />}>
             <AuthRoute></AuthRoute>
             <Switch>
               <Route path="/home" exact component = {Home} ></Route>
@@ -31,7 +30,6 @@ function App() {
           </Suspense>
         </BrowserRouter>
       </Provider>
-      <div className={styles.testa} >dfsdfsdfsd</div>
     </Fragment>
   );
 }

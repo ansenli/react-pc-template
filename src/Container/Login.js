@@ -1,12 +1,9 @@
-// imrc 
-import React, { Component ,Fragment,Suspense } from 'react'
-/* impr  */
-// import React, { PureComponent } from 'react'
-import  { connect } from 'react-redux'
+import React, { PureComponent,Fragment } from 'react';
+import  { connect } from 'react-redux';
 import { asyncPostLogin } from '@/store/actions/common';
-import { Button } from 'antd';
-// 代码分割加载配合Suspense使用
-const User = React.lazy(() => import('./User'));
+import { Layout } from 'antd';
+import WrappedNormalForm from 'Components/WrappedNormalForm';
+import styles from './Login.module.less';
 
 // react-redux 中 connect 第一个参数是函数，第二个参数是对象
 @connect(
@@ -20,7 +17,7 @@ const User = React.lazy(() => import('./User'));
     asyncPostLogin
   }
 )
-class Login extends Component{
+class Login extends PureComponent{
   nextTapLink = ()=>{
     const {history} = this.props;
     history.push('/home');
@@ -29,16 +26,21 @@ class Login extends Component{
     const {asyncPostLogin} = this.props;
     asyncPostLogin();
   }
+  registerSubmit = ()=>{
+    const {history} = this.props;
+    history.push('/register');
+  }
+   loginSubmit = async (values)=>{
+    const {asyncPostLogin} = this.props;
+    const respon = await asyncPostLogin();
+    
+  }
   render(){
     return (
       <Fragment>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Button onClick={this.nextTapLink}>跳转到home页面</Button>
-          <Button onClick={this.nextTapLogin}>触发登录接口</Button>
-          <Button type="primary">Button1111</Button>
-          <User></User>
-        </Suspense>
-
+        <div className={styles.login_layout} >
+          <WrappedNormalForm registerSubmit = {this.registerSubmit} loginSubmit = {this.loginSubmit} />
+        </div>
       </Fragment>
     )
   }

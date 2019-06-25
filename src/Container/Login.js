@@ -32,7 +32,9 @@ class Login extends PureComponent{
   }
    loginSubmit = async (values)=>{
     const {asyncPostLogin} = this.props;
-    const respon = await asyncPostLogin();
+    await asyncPostLogin().then(res=>{
+      console.log("res....",res)
+    });
     
   }
   render(){

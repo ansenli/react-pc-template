@@ -21,7 +21,6 @@ const asyncGetUserInfoFunc = async function (params) {
   }
 }
 
-
 // async reduxActions 
 export const asyncGetUserInfo = createAction(ASYNC_USERINFO, (params) => {
   return asyncGetUserInfoFunc(params)

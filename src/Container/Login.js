@@ -1,7 +1,7 @@
 import React, { PureComponent,Fragment } from 'react';
 import  { connect } from 'react-redux';
 import { asyncPostLogin } from '@/store/actions/common';
-import { Layout } from 'antd';
+import { notification } from 'antd';
 import WrappedNormalForm from 'Components/WrappedNormalForm';
 import styles from './Login.module.less';
 
@@ -31,9 +31,16 @@ class Login extends PureComponent{
     history.push('/register');
   }
    loginSubmit = async (values)=>{
-    const {asyncPostLogin} = this.props;
+    const {asyncPostLogin,history} = this.props;
     await asyncPostLogin().then(res=>{
       console.log("res....",res)
+      const message = res.payload.resCode.message;
+      notification.success({
+        message: message,
+        description:`恭喜您${message}！！！！`,
+        duration:1.5
+      });
+      history.push('/home')
     });
     
   }

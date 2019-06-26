@@ -10,8 +10,15 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
+  background: #ddd;
 }
-
+body > div#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

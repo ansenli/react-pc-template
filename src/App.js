@@ -11,6 +11,8 @@ const Login = lazy(()=>import('Container/Login'));
 const Register = lazy(()=>import('Container/Register'));
 const User = lazy(()=>import('Container/User'));
 const AuthRoute = lazy(()=>import('Components/AuthRoute'));
+const TableConent = lazy(()=>import('Container/TableConent'));
+
 const store = configStore();
 function App() {
   return (
@@ -22,10 +24,16 @@ function App() {
           <Suspense fallback={<Icon type="slack-square" spin style={{fontSize: 40,color:'rgb(129, 74, 150)'}} />}>
             <AuthRoute></AuthRoute>
             <Switch>
-              <Route path="/home" exact component = {Home} ></Route>
+              <Route path="/home" render={()=>(
+                <Home>
+                  <Route path="/home/table"  component={TableConent} />
+                </Home>
+              )} >
+              </Route>
               <Route path="/login" component = {Login} ></Route>
               <Route path="/register" component = {Register} ></Route>
               <Route path="/user" component = {User} ></Route>
+              {/* <Route path="/table" component = {TableConent} ></Route> */}
             </Switch>
           </Suspense>
         </BrowserRouter>

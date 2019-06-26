@@ -1,8 +1,9 @@
 .App {
   text-align: center;
 }
-
-
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+  border-right: 0px solid #fff !important;
+}
 
 
 

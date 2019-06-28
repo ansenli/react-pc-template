@@ -29,7 +29,27 @@ class Home extends Component{
         <Layout className = {styles.container_layout}  style={{backgroundColor: 'red'}} >
           <Sider className = {styles.container_sider} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
             <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" onClick = {this.changeMenu} >
-             
+              <Menu.Item key="1">
+                <Icon type="desktop" />
+                <span>
+                  <NavLink to='/home/table'>首页详情</NavLink>
+                </span>
+              </Menu.Item>
+              <SubMenu
+                key="sub1"
+                title={
+                  <span>
+                    <Icon type="user" />
+                    <span>Form表单</span>
+                  </span>
+                }
+              >
+                <Menu.Item key="3">表单展示</Menu.Item>
+              </SubMenu>
+              <Menu.Item key="9">
+                <Icon type="file" />
+                <span>表格展示</span>
+              </Menu.Item>
             </Menu>
           </Sider>
           <Layout>

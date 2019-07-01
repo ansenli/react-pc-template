@@ -10,7 +10,7 @@ const menuList = [{
     children: [{
         title: '普通表单',
         key: '/form/norlist',
-        icon:'form',
+        icon:'database',
       }
     ]
   },
@@ -21,12 +21,12 @@ const menuList = [{
     children: [{
         title: '基础表格',
         key: '/table/norlist',
-        icon:'form',
+        icon:'bars',
       },
       {
         title: '高级表格',
         key: '/table/speciallist',
-        icon:'form',
+        icon:'solution',
       }
     ]
   }

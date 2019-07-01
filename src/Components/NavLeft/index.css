@@ -1,0 +1,29 @@
+
+
+.ant-layout-sider-children {
+  /* background:rgba(129, 73, 150, 0.9); */
+  
+}
+.ant-menu-inline {
+ /* background:rgba(129, 73, 150, 0.9) !important; */
+ 
+}
+/* .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  
+  color: rgb(255, 0, 184)!important;
+  background: transparent;
+  border-right: 5px solid rgb(255, 0, 184);
+}
+.ant-menu-item-active {
+  color: red !important;
+}
+*/
+.ant-menu-submenu-active:hover {
+  color: red !important;
+}
+.ant-menu-submenu-selected {
+  color:red !important;
+}
+.ant-menu-submenu-open{
+  color: red !important;
+}

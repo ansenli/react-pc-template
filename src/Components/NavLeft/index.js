@@ -3,6 +3,7 @@ import { Menu,Icon } from 'antd';
 import { NavLink,withRouter } from 'react-router-dom'
 import MenuConfig from '@/config/menuConfig'
 import './index.module.less'
+import './index.css'
 const { SubMenu } = Menu;
 
 @withRouter
@@ -41,7 +42,7 @@ class NavLeft extends Component {
           <SubMenu 
             title = {
               <span>
-                <Icon type = {item.icon} />
+                {item.icon ? <Icon type = {item.icon} /> :null}
                 <span>{item.title}</span>
               </span>
             } 
@@ -53,7 +54,7 @@ class NavLeft extends Component {
       }
       return (
         <Menu.Item title={item.title} key={item.key}>
-          <Icon type={item.icon} />
+          {item.icon ? <Icon type = {item.icon} /> :null}
           <span>{item.title}</span>
         </Menu.Item>
       )
@@ -62,15 +63,12 @@ class NavLeft extends Component {
   render() {
     return (
       <Fragment>
-        <div className="logo">
-          <img src="/assets/logo-ant.svg" alt=""/>
-          <h1>圆通科技</h1>
-        </div>
         <Menu 
           onClick={this.handleClick}
           selectedKeys={[this.state.currentKey]}
-          theme="dark"
+          theme="light"
           mode="inline"
+          style = {{bacground:'red'}}
           >
           {this.state.MenuTreeNode}      
         </Menu>

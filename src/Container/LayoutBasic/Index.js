@@ -7,11 +7,7 @@ import LayoutFooter from 'Components/Footer/index';
 import NavLeft from 'Components/NavLeft';
 import styles from './index.module.less'
 import './golbal.less';
-
 const { Header, Footer, Sider, Content } = Layout;
-
-
-
 export default class Admin extends Component {
   state = {
     collapsed: false,
@@ -31,12 +27,9 @@ export default class Admin extends Component {
             <LayoutHeader/>
           </Header>
           <Layout>
-            <Sider className = {styles.container_sider} 
+            <Sider 
               trigger={
-                <Icon
-                  className="trigger"
-                  type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                />
+                <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}/>
               } 
               collapsible collapsed={this.state.collapsed} 
               onCollapse = {this.toggle}

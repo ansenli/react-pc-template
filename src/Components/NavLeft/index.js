@@ -3,7 +3,7 @@ import { Menu,Icon } from 'antd';
 import { NavLink,withRouter } from 'react-router-dom'
 import MenuConfig from '@/config/menuConfig'
 import './index.module.less'
-import './index.css'
+import './golbal.less'
 const { SubMenu } = Menu;
 
 @withRouter

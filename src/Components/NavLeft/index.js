@@ -1,15 +1,16 @@
-import React,{Component,Fragment} from 'react'
+import React,{Component,Fragment} from 'react';
 import { Menu,Icon } from 'antd';
-import { NavLink,withRouter } from 'react-router-dom'
-import MenuConfig from '@/config/menuConfig'
-import './index.module.less'
-import './golbal.less'
+import { withRouter } from 'react-router-dom';
+import MenuConfig from '@/config/menuConfig';
+import './index.module.less';
+import './golbal.less';
 const { SubMenu } = Menu;
 
 @withRouter
 class NavLeft extends Component {
   state = {
-    currentKey: ''
+    currentKey: '',
+    openKey:'',
   }
   handleClick = ({item, key}) => {
     const { history } = this.props;
@@ -18,20 +19,18 @@ class NavLeft extends Component {
       return false;
     }
     this.setState({
-      currentKey: key
+      currentKey: key,
     })
   }
-  homeHandleClick = () => {
-    this.setState({
-      currentKey: ""
-    });
-  };
   componentWillMount() {
     const MenuTreeNode = this.renderMenu(MenuConfig);
     let currentKey = window.location.hash.replace(/#|\?.*$/g, '');
+    let openKey = `/${currentKey.split('/')[1]}`
+  
     this.setState({
       currentKey,
-      MenuTreeNode
+      MenuTreeNode,
+      openKey
     })
   }
   // 这个地方用的非常巧妙
@@ -66,6 +65,7 @@ class NavLeft extends Component {
         <Menu 
           onClick={this.handleClick}
           selectedKeys={[this.state.currentKey]}
+          defaultOpenKeys= {[this.state.openKey]}
           theme="light"
           mode="inline"
           style = {{bacground:'red'}}

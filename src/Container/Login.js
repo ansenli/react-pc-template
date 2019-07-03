@@ -9,8 +9,8 @@ import styles from './Login.module.less';
 @connect(
   state=>(
     {
-      loginInfo:state.common.loginInfo, // 页面获取方式 this.props.loginInfo
-      registerInfo:state.common.registerInfo, // 页面获取方式 this.props.registerInfo
+      loginInfo:state.common.loginInfo, 
+      registerInfo:state.common.registerInfo, 
     }
   ),
   {
@@ -33,7 +33,6 @@ class Login extends PureComponent{
    loginSubmit = async (values)=>{
     const {asyncPostLogin,history} = this.props;
     await asyncPostLogin().then(res=>{
-      console.log("res....",res)
       const message = res.payload.resCode.message;
       notification.success({
         message: message,

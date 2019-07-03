@@ -1,15 +1,11 @@
-// imrc 
-import React, { Component ,Fragment} from 'react'
-/* impr  */
-// import React, { PureComponent } from 'react'
-
-import { Button } from 'antd';
-
+import React, { Component ,Fragment} from 'react';
 class Register extends Component{
   render(){
     return (
       <Fragment>
-        <Button>Register.....</Button>
+        <div>
+          注册页面
+        </div>
       </Fragment>
     )
   }

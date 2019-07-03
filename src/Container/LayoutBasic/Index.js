@@ -1,9 +1,7 @@
 import React ,{Component,Fragment} from 'react';
-import { Row, Col } from 'antd';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-
+import { Layout, Breadcrumb, Icon } from 'antd';
 import LayoutHeader from 'Components/Header';
-import LayoutFooter from 'Components/Footer/index';
+import LayoutFooter from 'Components/Footer';
 import NavLeft from 'Components/NavLeft';
 import styles from './index.module.less'
 import './golbal.less';
@@ -42,7 +40,7 @@ export default class Admin extends Component {
                   <Breadcrumb.Item>User</Breadcrumb.Item>
                   <Breadcrumb.Item>Bill</Breadcrumb.Item>
                 </Breadcrumb>
-                <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                <div className={styles.container_content} >
                   {this.props.children}
                 </div>
               </Content>

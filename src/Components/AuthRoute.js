@@ -1,5 +1,5 @@
 
-import React,{ PureComponent,Fragment } from 'react'
+import { PureComponent } from 'react'
 import {withRouter } from 'react-router-dom'
 // 这里使用修饰符，需要在config-override.js 中进行配置
 @withRouter
